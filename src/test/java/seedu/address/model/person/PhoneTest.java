@@ -29,6 +29,9 @@ public class PhoneTest {
         assertFalse(Phone.isValidPhone(" ")); // spaces only
         assertFalse(Phone.isValidPhone("+")); // + only
         assertFalse(Phone.isValidPhone("-")); // - only
+        assertFalse(Phone.isValidPhone("+-"));
+        assertFalse(Phone.isValidPhone("+-123"));
+        assertFalse(Phone.isValidPhone("+ -123-123"));
         assertFalse(Phone.isValidPhone("phone")); // non-numeric
         assertFalse(Phone.isValidPhone("9011p041")); // alphabets within digits
         assertFalse(Phone.isValidPhone("++6512345678"));
