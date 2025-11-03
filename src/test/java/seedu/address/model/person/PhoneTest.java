@@ -27,17 +27,25 @@ public class PhoneTest {
         // invalid phone numbers
         assertFalse(Phone.isValidPhone("")); // empty string
         assertFalse(Phone.isValidPhone(" ")); // spaces only
+        assertFalse(Phone.isValidPhone("+")); // + only
+        assertFalse(Phone.isValidPhone("-")); // - only
         assertFalse(Phone.isValidPhone("phone")); // non-numeric
         assertFalse(Phone.isValidPhone("9011p041")); // alphabets within digits
         assertFalse(Phone.isValidPhone("++6512345678"));
+        assertFalse(Phone.isValidPhone("+ 6591234567"));
         assertFalse(Phone.isValidPhone("+651--2345678")); // too many dashes
         assertFalse(Phone.isValidPhone("+65123456  78")); // too many spaces between blocks of numbers
+        assertFalse(Phone.isValidPhone("+65123--456  78"));
+        assertFalse(Phone.isValidPhone("-123")); // starts with -
 
         // valid phone numbers
         assertTrue(Phone.isValidPhone("91")); // less than 3 numbers
+        assertTrue(Phone.isValidPhone("1")); // 1 number
+        assertTrue(Phone.isValidPhone("+1")); // 1 number with +
         assertTrue(Phone.isValidPhone("93121534"));
         assertTrue(Phone.isValidPhone("124293842033123")); // long phone numbers
         assertTrue(Phone.isValidPhone("+65 1234 5678"));
+        assertTrue(Phone.isValidPhone("123-456-7890"));
         assertTrue(Phone.isValidPhone("+1 123 1234 5678"));
         assertTrue(Phone.isValidPhone("+65-1234-5678"));
         assertTrue(Phone.isValidPhone("0912345678"));
