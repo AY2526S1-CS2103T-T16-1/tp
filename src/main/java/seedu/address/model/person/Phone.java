@@ -13,7 +13,7 @@ public class Phone {
     public static final String MESSAGE_CONSTRAINTS =
             "Phone numbers can start with an optional (+) to denote a country code.\n"
             + "The rest of the characters should only contain digits separated by single spaces or hyphens (-).\n";
-    public static final String VALIDATION_REGEX = "^(\\+?\\d+)?([- ]?\\d)+$";
+    public static final String VALIDATION_REGEX = "^(\\+?\\d)([- ]?\\d)*$";
     public final String value;
 
     /**
